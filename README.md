@@ -24,3 +24,5 @@
 
 ## 研究价值
 本研究突破了传统静态偏见评估的桎梏，明确定义了大模型涌现式偏见的核心概念，填补了动态对抗场景下偏见评估与缓解的研究空白，为高风险交互场景下大模型的安全治理与合规落地，提供了可复制、可落地的技术方案与实践支撑。
+<img width="436" height="283" alt="image" src="https://github.com/user-attachments/assets/2648d315-6e64-4aac-8500-c1cf28cff9ae" />
+<img width="421" height="265" alt="image" src="https://github.com/user-attachments/assets/73483561-d9ee-4c58-8d38-cf7c4558e34f" />
