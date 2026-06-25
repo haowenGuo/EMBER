@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ember-bias"
+version = "0.1.0"
+description = "Emergent Multi-turn Bias Evaluation and Mitigation in Adversarial Dialogues"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [
+  { name = "Haowen Guo" }
+]
+dependencies = []
+
+[project.optional-dependencies]
+llm = [
+  "openai>=1.0.0",
+  "requests>=2.31.0",
+]
+local = [
+  "torch",
+  "transformers",
+]
+dev = [
+  "pytest>=8.0.0",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]

@@ -1,28 +1,55 @@
-# 多轮对抗性交互场景下的大模型涌现式偏见的评估与缓解
----
+# EMBER
 
-## 研究背景
-大语言模型（LLMs）在海量数据预训练过程中，易继承并放大数据中固有的刻板印象与社会偏见，在交互中可能生成带有偏向性的不安全内容，引发安全与伦理风险。现有研究多聚焦静态偏见评估，无法捕捉真实对抗交互场景中偏见的动态演化特征，动态场景下的偏见评估与缓解存在显著研究空白。
+**Emergent Multi-turn Bias Evaluation and Mitigation in Adversarial Dialogues**
 
-## 核心研究方案
-### 1. EMBER动态评估框架
-本文提出**EMBER（多轮对抗性对话涌现式偏见评估与缓解）框架**，实现对大模型涌现式偏见的系统化动态评估，核心设计如下：
-- 构建多智能体对话系统，涵盖数据分析处理、双/多智能体辩论、偏见评估三大核心模块，设计无对抗与强对抗双模式，覆盖一对一辩论、一对多群体讨论两类真实交互场景；
-- 基于CMV真实辩论数据集，构建覆盖政治、宗教、性别、文化、年龄、残障6大核心维度的争议性话题库；
-- 以Qwen3-4B-BiasExpert专用模型为评估基座，建立标准化偏见量化指标体系，实现对多轮对话中潜在偏见的动态挖掘与演化跟踪。
+EMBER is a research and engineering framework for evaluating and mitigating
+emergent bias in multi-turn adversarial interactions with large language
+models. It combines multi-agent debate simulation, BiasExpert-style scoring,
+EMBER-Agent reflection-based mitigation, and EMBER-Harness stage-gated
+deployment.
 
-### 2. EMBER-Agent缓偏智能体系统
-针对传统提示词缓偏策略的局限性，本文基于ReAct架构设计**EMBER-Agent智能体系统**，实现动态场景下偏见的有效缓解：
-- 构建「推理-反思-观测-执行」核心闭环，通过模型对输出内容的持续自检、动态修正，突破静态缓偏策略的效果衰减问题；
-- 完成配套软件系统的模块化、工程化落地，可直接适配双智能体辩论、多智能体讨论等各类对抗交互场景。
+## Language / 语言
 
-## 实验验证与核心结论
-本文设计三组对照实验，验证方法的有效性，核心结论如下：
-1. **涌现偏见验证实验**：证实大模型存在显著的涌现式偏见，在对抗性动态交互场景中，模型偏见得分从第0轮的0.91分升至第5轮的1.81分，偏见强度随对抗轮次显著提升；
-2. **对抗强度影响实验**：明确对抗性是挖掘模型潜在偏见的核心要素，相较无对抗场景，强对抗场景下的涌现偏见增幅达250%；
-3. **缓偏效果对比实验**：传统提示词缓偏策略仅在对话初期有效，多轮交互中会触发「防御性偏见强化现象」，第5轮偏见分值飙升至2.20；而EMBERAgent可有效抑制多轮对话中的偏见升级，缓偏效果显著优于传统提示词技术。
+- [中文说明](README.zh-CN.md)
+- [English README](README.en.md)
 
-## 研究价值
-本研究突破了传统静态偏见评估的桎梏，明确定义了大模型涌现式偏见的核心概念，填补了动态对抗场景下偏见评估与缓解的研究空白，为高风险交互场景下大模型的安全治理与合规落地，提供了可复制、可落地的技术方案与实践支撑。
-<img width="436" height="283" alt="image" src="https://github.com/user-attachments/assets/2648d315-6e64-4aac-8500-c1cf28cff9ae" />
-<img width="421" height="265" alt="image" src="https://github.com/user-attachments/assets/73483561-d9ee-4c58-8d38-cf7c4558e34f" />
+## What Is In This Repository?
+
+- `src/ember`: clean public reference implementation.
+- `examples`: minimal demos that run without private API keys.
+- `code`: legacy thesis experiment scripts kept for traceability.
+- `Dataset`: sample datasets already present in the original project.
+- `experiments/ember_harness`: paper-ready EMBER-Harness tables, figures, and processed CSV results.
+- `docs`: architecture, experiment, and safety notes in Chinese and English.
+
+## Core Ideas
+
+1. **EMBER framework** evaluates bias dynamically instead of relying only on
+   static prompt-answer benchmarks.
+2. **EMBER-Agent** adds a reflection-revision loop that checks and rewrites
+   model outputs during multi-turn interactions.
+3. **Risk-aware mitigation** studies parameter-efficient ways to reduce
+   inference-time self-check overhead.
+4. **EMBER-Harness** moves EMBER-Agent from final-output filtering to semantic
+   stage gates with snapshots and local rollback.
+
+## Quick Start
+
+```bash
+python -m venv .venv
+.venv\Scripts\activate
+pip install -e .[dev]
+python examples/minimal_agent_demo.py
+python examples/minimal_harness_demo.py
+pytest
+```
+
+The demos use deterministic rule-based evaluators so the repository can be
+tested without private models or API credentials.
+
+## Safety Note
+
+Do not commit real API keys. Use `.env.example` as a template and keep secrets
+only in local environment variables. Large raw JSONL experiment dumps should be
+released through GitHub Releases, Hugging Face Datasets, or another artifact
+store rather than committed directly to the repository.

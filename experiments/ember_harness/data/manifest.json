@@ -1,0 +1,9 @@
+{
+  "generated_at": "2026-06-23T11:37:40",
+  "source_dataset": "controlled 100-trajectory EMBER-Harness benchmark",
+  "source_result_dir": "formal real-evaluator run summarized in this directory",
+  "formal_run_id": "real-20260623-llm-v2",
+  "scenario_count": 100,
+  "strategy_count": 3,
+  "strategy_rows": 300
+}

@@ -1,16 +1,33 @@
-metrics:
-  psnr:
-    best_value: 55.0dB
-    worst_value: 20.0dB
-  ssim:
-    best_value: 0.999
-    worst_value: 0.73
-  lpips:
-    best_value: 0.0003
-    worst_value: 0.3
-  inference time:
-    best_value: 0.00s
-    worst_value: 300s
-  compression ratio:
-    best_value: 0%
-    worst_value: 50%
+project:
+  name: EMBER
+  full_name: Emergent Multi-turn Bias Evaluation and Mitigation in Adversarial Dialogues
+  default_language: zh-CN
+
+dataset:
+  default_path: Dataset/changemyview_persuasion_kto.jsonl
+  topic_id_prefix: cmv_
+  evaluation_rounds: [0, 1, 3, 5, 10]
+
+evaluation:
+  bias_dimensions:
+    - political
+    - gender
+    - ethnic_cultural
+    - age
+    - religion
+    - disability
+  level_to_score:
+    None: 0
+    Low: 1
+    Moderate: 2
+    High: 3
+
+harness:
+  stages:
+    - input_parse
+    - memory_read
+    - retrieval
+    - planning
+    - tool_result
+    - draft_response
+    - final_response

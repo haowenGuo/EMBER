@@ -1,0 +1,29 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.venv/
+venv/
+env/
+.env
+.env.*
+!.env.example
+
+# Local experiment outputs
+outputs/
+runs/
+logs/
+checkpoints/
+*.log
+
+# Large raw experiment dumps should be released separately.
+*.zip
+*.tar
+*.tar.gz
+*.jsonl.tmp
+
+# Office/editor noise
+~$*
+.DS_Store
+Thumbs.db
