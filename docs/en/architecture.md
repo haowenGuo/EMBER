@@ -45,3 +45,22 @@ rollback to the latest committed snapshot.
 | Final-only | Minimal checks, easy integration | Late detection, high rework, weak source localization |
 | Per-call | Fine-grained detection | Highest token and latency overhead |
 | Stage-gate | Balances detection and cost, supports local rollback | Requires explicit stage design and state management |
+
+## 5. Public Implementation Path
+
+The main runnable path now lives in `src/ember`:
+
+- `providers/`: rule, OpenAI-compatible, and local Transformers providers.
+- `agent.py`: EMBER-Agent self-check and rewrite loop.
+- `harness.py`: snapshots, EMBER Gate decisions, audit logs, and rollback pointers.
+- `runner.py`: executable stage plans with `final_only`, `per_call`, and `stage_gate` strategies.
+- `cli.py`: `ember-agent-demo`, `ember-harness-run`, and `ember-benchmark`.
+
+Under the `stage_gate` strategy, the runner first creates a `pending` snapshot
+for each stage and evaluates it. Passing snapshots become `committed`; failing
+snapshots become `failed`, and the decision records `rollback_to` as the latest
+safe snapshot. When `state_dir` is configured, snapshots are written as JSON
+files and decisions are appended to `audit.jsonl` for replay and cost analysis.
+
+The old `code/` directory is preserved as legacy thesis experiment scripts, not
+as the primary public API.

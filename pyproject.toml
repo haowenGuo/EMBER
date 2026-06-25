@@ -26,6 +26,12 @@ dev = [
   "pytest>=8.0.0",
 ]
 
+[project.scripts]
+ember-agent-demo = "ember.cli:agent_demo"
+ember-harness-run = "ember.cli:harness_run"
+ember-benchmark = "ember.cli:benchmark"
+ember = "ember.cli:main"
+
 [tool.setuptools.packages.find]
 where = ["src"]
 

@@ -13,6 +13,9 @@ EMBER/
 │   ├── arena.py                   # 多智能体对抗交互环境
 │   ├── agent.py                   # EMBER-Agent 自检与重写闭环
 │   ├── harness.py                 # EMBER-Harness 阶段门控、快照和回退
+│   ├── providers/                 # 规则、OpenAI-compatible、本地模型 provider
+│   ├── runner.py                  # 阶段计划 runner 与 benchmark
+│   ├── cli.py                     # 命令行入口
 │   └── data.py                    # JSONL 数据处理工具
 ├── examples/                      # 无需私有 API 的最小示例
 ├── tests/                         # 轻量单元测试
@@ -63,12 +66,43 @@ input_parse -> memory_read -> retrieval -> planning -> tool_result -> draft_resp
 python -m venv .venv
 .venv\Scripts\activate
 pip install -e .[dev]
-python examples\minimal_agent_demo.py
-python examples\minimal_harness_demo.py
+ember-agent-demo --json
+ember-harness-run --strategy stage_gate --json
+ember-benchmark --output outputs\ember_benchmark.csv
 pytest
 ```
 
 示例使用规则评估器，不依赖私有模型或 API key。真实实验可接入 OpenAI-compatible API、本地 Transformers 模型、Qwen3-4B-BiasExpert 或其他偏见评估器。
+
+### CLI 命令
+
+| 命令 | 作用 |
+| --- | --- |
+| `ember-agent-demo` | 运行 EMBER-Agent 自检与重写闭环 |
+| `ember-harness-run` | 运行一个多阶段 Harness 任务，支持最终检查、逐调用检查、阶段门检查 |
+| `ember-benchmark` | 运行内置小型 benchmark，并导出 CSV |
+
+### Provider 模式
+
+| Provider | 说明 |
+| --- | --- |
+| `rule` | 离线规则 provider，默认可直接运行 |
+| `openai` | OpenAI-compatible Chat Completions provider，通过 `OPENAI_API_KEY`、`OPENAI_BASE_URL`、`OPENAI_MODEL` 配置 |
+| `transformers` | 本地 Hugging Face Transformers provider，通过 `--model` 或 `TRANSFORMERS_MODEL` 配置 |
+
+### 可运行闭环
+
+`ember-harness-run` 会用同一个阶段计划运行三种检查位置：
+
+| 策略 | 实际含义 |
+| --- | --- |
+| `final_only` | 完整轨迹生成后只做最终自检，发现风险后全量重写并复检 |
+| `per_call` | 按模拟的大模型调用次数逐次自检，修复后的阶段产物也会复检 |
+| `stage_gate` | 每个语义阶段先保存 pending 快照，再通过 gate；通过则提交，失败则回退到最近 committed 快照并局部修复 |
+
+设置 `--state-dir` 后，`stage_gate` 会写入每次检查对应的快照 JSON 和
+`audit.jsonl` 决策日志。`ember-benchmark` 使用内置受控场景导出三种策略的
+预期 token 开销，用来支撑论文中“最终自检、逐调用自检、阶段门自检”的对比。
 
 ## EMBER-Harness 实验结果
 

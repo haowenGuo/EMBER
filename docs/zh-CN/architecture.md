@@ -56,3 +56,21 @@ final_response
 | 最终输出自检 | 检查次数少，接入简单 | 风险发现晚，难定位风险源，返工范围大 |
 | 逐调用自检 | 检出及时，覆盖最细 | 检查次数和 token 开销最高 |
 | 阶段门自检 | 在安全性和开销之间折中，支持局部回退 | 对阶段划分和状态管理有要求 |
+
+## 6. 公开实现主线
+
+当前仓库的主线实现位于 `src/ember`：
+
+- `providers/`：统一 provider 层，支持离线规则 provider、OpenAI-compatible provider、本地 Transformers provider。
+- `agent.py`：实现 EMBER-Agent 自检与重写闭环。
+- `harness.py`：实现阶段快照、EMBER Gate、审计日志和回退指针。
+- `runner.py`：将阶段计划真正跑起来，并支持 `final_only`、`per_call`、`stage_gate` 三种策略。
+- `cli.py`：提供 `ember-agent-demo`、`ember-harness-run`、`ember-benchmark` 三个命令。
+
+在 `stage_gate` 策略中，runner 会为每个阶段先创建 `pending` 快照并执行
+风险评估；通过后快照状态更新为 `committed`，失败后状态更新为 `failed`，
+并在决策中记录 `rollback_to` 指向最近的安全快照。若设置 `state_dir`，
+这些快照会以 JSON 文件落盘，同时追加写入 `audit.jsonl`，便于复现实验轨迹和
+分析回退次数。
+
+旧 `code/` 目录保留为论文实验脚本，不再作为公开仓库的主要入口。

@@ -15,6 +15,9 @@ EMBER/
 │   ├── arena.py                   # Multi-agent adversarial dialogue arena
 │   ├── agent.py                   # EMBER-Agent reflection-revision loop
 │   ├── harness.py                 # EMBER-Harness stage gates and rollback
+│   ├── providers/                 # Rule, OpenAI-compatible, and local providers
+│   ├── runner.py                  # Stage-plan runner and benchmark loop
+│   ├── cli.py                     # Command-line entry points
 │   └── data.py                    # JSONL data helpers
 ├── examples/                      # Minimal demos without private API keys
 ├── tests/                         # Lightweight tests
@@ -68,13 +71,44 @@ stage instead of restarting the whole task.
 python -m venv .venv
 .venv\Scripts\activate
 pip install -e .[dev]
-python examples/minimal_agent_demo.py
-python examples/minimal_harness_demo.py
+ember-agent-demo --json
+ember-harness-run --strategy stage_gate --json
+ember-benchmark --output outputs/ember_benchmark.csv
 pytest
 ```
 
 The examples use deterministic rule-based evaluators, so they run without
 private models or credentials.
+
+## CLI Commands
+
+| Command | Purpose |
+| --- | --- |
+| `ember-agent-demo` | Run the EMBER-Agent self-check and rewrite loop |
+| `ember-harness-run` | Run a stage plan with final-only, per-call, or stage-gate checking |
+| `ember-benchmark` | Run the built-in benchmark and export CSV |
+
+## Provider Modes
+
+| Provider | Description |
+| --- | --- |
+| `rule` | Offline deterministic provider; works out of the box |
+| `openai` | OpenAI-compatible Chat Completions provider configured by `OPENAI_API_KEY`, `OPENAI_BASE_URL`, and `OPENAI_MODEL` |
+| `transformers` | Local Hugging Face Transformers provider configured by `--model` or `TRANSFORMERS_MODEL` |
+
+## Runnable Closed Loop
+
+`ember-harness-run` executes the same stage plan with three check placements:
+
+| Strategy | Meaning |
+| --- | --- |
+| `final_only` | Check only after the full trajectory, then rewrite all and re-check if risk is found |
+| `per_call` | Check each modeled LLM call and re-check repaired stage artifacts |
+| `stage_gate` | Save a pending snapshot at each semantic stage, commit clean snapshots, and roll back to the latest committed snapshot when a gate fails |
+
+With `--state-dir`, stage-gate runs persist one snapshot JSON file per check and
+an `audit.jsonl` decision log. `ember-benchmark` exports expected token costs
+for the built-in controlled scenarios.
 
 ## EMBER-Harness Results
 
