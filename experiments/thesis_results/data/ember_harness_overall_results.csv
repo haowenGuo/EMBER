@@ -1,0 +1,4 @@
+﻿strategy,scenarioCount,riskScenarioCount,cleanScenarioCount,detectedRiskCount,falsePositiveCount,workTokens,actualCheckTokens,estimatedCheckTokens,effectiveCheckTokens,expectedReworkTokens,expectedTotalTokens,checkCalls,detectionRate,falsePositiveRate,averageDetectionLagStages,averageDurationMs
+final_only,100,80,20,63,0,260565,91758,91758,91758,186347.05,538670.05,100,0.7875,0,3.2375,5545.91
+per_call,100,80,20,80,0,260565,804263,804263,804263,0.0,1064828.0,952,1.0,0,0.0375,44446.03
+stage_gate,100,80,20,78,0,260565,391824,391824,391824,38219.2,690608.2000000001,504,0.975,0,0.175,19298.14

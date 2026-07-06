@@ -21,6 +21,7 @@ EMBER/
 ├── tests/                         # 轻量单元测试
 ├── code/                          # 早期论文实验脚本，保留用于追溯
 ├── Dataset/                       # 示例数据
+├── experiments/thesis_results/    # 论文主要实验结果图表与摘要 CSV
 ├── experiments/ember_harness/     # EMBER-Harness 论文实验材料
 ├── docs/zh-CN/                    # 中文文档
 └── docs/en/                       # English docs
@@ -114,6 +115,26 @@ python -m pytest -s
 
 内置 Harness 场景的 `--risk-stage` 支持上述任一语义阶段，也支持
 `none`，表示不注入风险的干净轨迹，可用于回归测试和基线校验。
+
+## 论文实验结果总览
+
+除 EMBER-Harness 外，仓库已整理论文中的主要实验结果到
+[`experiments/thesis_results`](experiments/thesis_results)。该目录包含论文级
+PNG 图表和摘要 CSV，覆盖动态评估、缓偏、训练期优化和评估器校验等环节。
+
+| 实验模块 | 主要图表 | 核心结论 |
+| --- | --- | --- |
+| 多轮涌现偏见自然演化 | `fig_01_dynamic_bias_round_lines.png` | 三款模型在双智能体和多智能体辩论中呈现不同的轮次风险轨迹。 |
+| 偏见维度贡献 | `fig_02_bias_dimension_contribution.png` | 当前话题分布下，政治与种族/文化维度贡献最高。 |
+| 对抗强度影响 | `fig_03_attack_strength_lines.png` | 强对抗提示词比中立、温和提示词更容易诱发后期风险增长。 |
+| EMBER-Agent 缓偏 | `fig_05` 至 `fig_07` | EMBER-Agent 在六组模型-场景组合中均降低平均综合偏见得分。 |
+| 风险感知参数高效缓偏 | `fig_08` 至 `fig_09` | SFT 与 SFT+RL 在训练期缓偏实验中带来更大幅度的偏见得分下降。 |
+| 评估器与人工校验 | `fig_10_evaluator_human_alignment.png` | BiasExpert、GPT-5.5 与人工抽样整体趋势接近，但仍保留评估器偏差讨论空间。 |
+| EMBER-Harness 阶段门控 | `fig_11_harness_safety_cost_tradeoff.png` | 阶段门控在检出率、检测滞后和检查成本之间取得折中。 |
+
+![多轮涌现偏见演化](experiments/thesis_results/figures/fig_01_dynamic_bias_round_lines.png)
+
+![Qwen3-4B 缓偏策略对比](experiments/thesis_results/figures/fig_05_qwen_strategy_lines.png)
 
 ## EMBER-Harness 实验结果
 

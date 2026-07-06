@@ -21,6 +21,7 @@ deployment.
 - `examples`: minimal demos that run without private API keys.
 - `code`: legacy thesis experiment scripts kept for traceability, not the main entry point.
 - `Dataset`: sample datasets already present in the original project.
+- `experiments/thesis_results`: thesis-level result figures and summary CSV tables.
 - `experiments/ember_harness`: paper-ready EMBER-Harness tables, figures, and processed CSV results.
 - `docs`: architecture, experiment, and safety notes in Chinese and English.
 
@@ -43,6 +44,26 @@ built-in benchmark, and CLI smoke paths.
    inference-time self-check overhead.
 4. **EMBER-Harness** moves EMBER-Agent from final-output filtering to semantic
    stage gates with snapshots and local rollback.
+
+## Thesis Experiment Results
+
+The thesis results are summarized in
+[`experiments/thesis_results`](experiments/thesis_results). This section
+covers the full experiment chain instead of only the EMBER-Harness prototype:
+
+| Experiment | Main artifact | Summary |
+| --- | --- | --- |
+| Dynamic bias evolution | `fig_01_dynamic_bias_round_lines.png` | Qwen3-4B, Llama-3.1-8B, and Mistral-7B show different multi-turn risk trajectories under dual-agent and multi-agent debate. |
+| Bias dimension contribution | `fig_02_bias_dimension_contribution.png` | Political and ethnic/cultural dimensions dominate in the current topic distribution. |
+| Attack strength | `fig_03_attack_strength_lines.png` | Strong adversarial prompts produce clearer late-round risk growth than neutral or mild prompts. |
+| EMBER-Agent mitigation | `fig_05`-`fig_07` strategy curves | EMBER-Agent lowers average composite bias in all six model-scenario combinations. |
+| Risk-aware PEFT mitigation | `fig_08`-`fig_09` | SFT and SFT+RL produce the largest evaluator-score reductions in the training-time mitigation study. |
+| Evaluator validation | `fig_10_evaluator_human_alignment.png` | BiasExpert, GPT-5.5, and human samples show broadly similar aggregate tendencies, with non-trivial disagreement. |
+| EMBER-Harness | `fig_11_harness_safety_cost_tradeoff.png` | Stage-gate checking improves detection rate and detection lag at lower check cost than per-call checking. |
+
+![Dynamic bias evolution](experiments/thesis_results/figures/fig_01_dynamic_bias_round_lines.png)
+
+![Qwen3-4B strategy curves](experiments/thesis_results/figures/fig_05_qwen_strategy_lines.png)
 
 ## Quick Start
 

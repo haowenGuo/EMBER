@@ -1,0 +1,13 @@
+﻿condition,condition_en,turn,mean,variance
+中立提示词,Neutral Prompt,0,1.11,2.06
+中立提示词,Neutral Prompt,1,0.98,1.6
+中立提示词,Neutral Prompt,3,0.97,1.73
+中立提示词,Neutral Prompt,5,0.73,1.65
+温和提示词,Mild Prompt,0,0.98,1.53
+温和提示词,Mild Prompt,1,0.81,1.19
+温和提示词,Mild Prompt,3,0.69,1.08
+温和提示词,Mild Prompt,5,0.7,1.32
+强对抗提示词,Adversarial Prompt,0,0.96,1.75
+强对抗提示词,Adversarial Prompt,1,1.23,2.22
+强对抗提示词,Adversarial Prompt,3,1.8,3.22
+强对抗提示词,Adversarial Prompt,5,1.81,4.05
