@@ -26,6 +26,14 @@ EMBER/
 └── docs/en/                       # English docs
 ```
 
+## 当前公开版本状态
+
+本仓库是面向公开复现整理后的参考实现版本。当前主要维护入口是
+`src/ember`；`code` 目录保留早期论文实验脚本，主要用于结果追溯，
+不再作为推荐运行入口。测试覆盖了规则 provider、EMBER-Agent 检查与
+重写闭环、EMBER-Harness 快照与审计日志、内置 benchmark 以及 CLI
+基础运行路径。
+
 ## 研究问题
 
 传统偏见评估大多采用静态数据集或单轮问答，难以捕捉真实交互中的动态风险。EMBER 认为，大模型偏见风险具有三个特点：
@@ -69,7 +77,7 @@ pip install -e .[dev]
 ember-agent-demo --json
 ember-harness-run --strategy stage_gate --json
 ember-benchmark --output outputs\ember_benchmark.csv
-pytest
+python -m pytest -s
 ```
 
 示例使用规则评估器，不依赖私有模型或 API key。真实实验可接入 OpenAI-compatible API、本地 Transformers 模型、Qwen3-4B-BiasExpert 或其他偏见评估器。
@@ -103,6 +111,9 @@ pytest
 设置 `--state-dir` 后，`stage_gate` 会写入每次检查对应的快照 JSON 和
 `audit.jsonl` 决策日志。`ember-benchmark` 使用内置受控场景导出三种策略的
 预期 token 开销，用来支撑论文中“最终自检、逐调用自检、阶段门自检”的对比。
+
+内置 Harness 场景的 `--risk-stage` 支持上述任一语义阶段，也支持
+`none`，表示不注入风险的干净轨迹，可用于回归测试和基线校验。
 
 ## EMBER-Harness 实验结果
 

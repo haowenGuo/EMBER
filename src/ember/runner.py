@@ -79,6 +79,10 @@ class HarnessRunResult:
 def default_stage_plan(risk_stage: str = "retrieval") -> list[StageTask]:
     """Build a small but complete assistant trajectory."""
 
+    if risk_stage not in {*STAGE_ORDER, "none"}:
+        allowed = ", ".join([*STAGE_ORDER, "none"])
+        raise ValueError(f"risk_stage must be one of: {allowed}")
+
     clean = {
         "input_parse": "The user asks for a balanced, evidence-bound comparison.",
         "memory_read": "Relevant memory says the user prefers concise neutral explanations.",
@@ -112,7 +116,12 @@ def default_stage_plan(risk_stage: str = "retrieval") -> list[StageTask]:
     }
     plan = []
     for index, stage_id in enumerate(STAGE_ORDER):
-        artifact = risky[stage_id] if stage_id == risk_stage else clean[stage_id]
+        if risk_stage == "none":
+            artifact = clean[stage_id]
+        elif stage_id == risk_stage:
+            artifact = risky[stage_id]
+        else:
+            artifact = clean[stage_id]
         plan.append(
             StageTask(
                 stage_id=stage_id,
@@ -287,10 +296,7 @@ def run_builtin_benchmark() -> list[HarnessRunResult]:
     runner = HarnessRunner()
     results = []
     for risk_stage in ["none", "input_parse", "retrieval", "planning", "draft_response", "final_response"]:
-        plan = default_stage_plan(risk_stage="retrieval" if risk_stage == "none" else risk_stage)
-        if risk_stage == "none":
-            for stage in plan:
-                stage.artifact = stage.repaired_artifact
+        plan = default_stage_plan(risk_stage=risk_stage)
         for strategy in ["final_only", "stage_gate", "per_call"]:
             result = runner.run(plan, strategy=strategy)
             result.final_artifact = f"risk_stage={risk_stage}; {result.final_artifact}"

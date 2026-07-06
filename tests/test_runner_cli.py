@@ -1,6 +1,11 @@
 import json
+import shutil
 import subprocess
 import sys
+import uuid
+from pathlib import Path
+
+import pytest
 
 from ember import HarnessRunner, default_stage_plan, run_builtin_benchmark
 
@@ -14,6 +19,19 @@ def test_harness_runner_repairs_stage_gate_risk():
     assert result.check_calls == 8
     assert result.records[2].repaired is True
     assert "neutral" in result.records[2].artifact
+
+
+def test_default_stage_plan_supports_explicit_no_risk():
+    runner = HarnessRunner()
+    result = runner.run(default_stage_plan("none"), strategy="stage_gate")
+
+    assert result.detected_risks == 0
+    assert result.rollback_count == 0
+
+
+def test_default_stage_plan_rejects_unknown_risk_stage():
+    with pytest.raises(ValueError, match="risk_stage must be one of"):
+        default_stage_plan("retreival")
 
 
 def test_builtin_benchmark_has_all_three_strategies():
@@ -38,17 +56,21 @@ def test_builtin_benchmark_orders_check_costs():
     assert expected_tokens["final_only"] < expected_tokens["stage_gate"] < expected_tokens["per_call"]
 
 
-def test_stage_gate_persists_snapshots_and_audit(tmp_path):
-    runner = HarnessRunner(state_dir=tmp_path)
-    result = runner.run(default_stage_plan("retrieval"), strategy="stage_gate")
-    audit_path = tmp_path / "audit.jsonl"
-    audit_rows = [json.loads(line) for line in audit_path.read_text(encoding="utf-8").splitlines()]
-    snapshot_files = list(tmp_path.glob("ember-*.json"))
+def test_stage_gate_persists_snapshots_and_audit():
+    state_dir = Path(".pytest_tmp") / f"stage-state-{uuid.uuid4().hex}"
+    try:
+        runner = HarnessRunner(state_dir=state_dir)
+        result = runner.run(default_stage_plan("retrieval"), strategy="stage_gate")
+        audit_path = state_dir / "audit.jsonl"
+        audit_rows = [json.loads(line) for line in audit_path.read_text(encoding="utf-8").splitlines()]
+        snapshot_files = list(state_dir.glob("ember-*.json"))
 
-    assert audit_path.exists()
-    assert len(audit_rows) == result.check_calls
-    assert len(snapshot_files) == result.check_calls
-    assert any(row["status"] == "failed" and row["action"] == "rollback" for row in audit_rows)
+        assert audit_path.exists()
+        assert len(audit_rows) == result.check_calls
+        assert len(snapshot_files) == result.check_calls
+        assert any(row["status"] == "failed" and row["action"] == "rollback" for row in audit_rows)
+    finally:
+        shutil.rmtree(state_dir, ignore_errors=True)
 
 
 def test_cli_agent_demo_json_runs():

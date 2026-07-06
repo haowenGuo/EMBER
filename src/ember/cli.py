@@ -10,6 +10,7 @@ from .agent import EmberAgent
 from .providers import RuleBasedEvaluator, build_stage_evaluator, build_text_provider
 from .runner import (
     HarnessRunner,
+    STAGE_ORDER,
     default_stage_plan,
     load_stage_plan,
     run_builtin_benchmark,
@@ -75,7 +76,12 @@ def harness_run(argv: list[str] | None = None) -> int:
     _provider_args(parser)
     parser.add_argument("--evaluator", choices=["rule", "llm"], default="rule")
     parser.add_argument("--strategy", choices=["final_only", "stage_gate", "per_call"], default="stage_gate")
-    parser.add_argument("--risk-stage", default="retrieval", help="Built-in scenario risk stage.")
+    parser.add_argument(
+        "--risk-stage",
+        choices=[*STAGE_ORDER, "none"],
+        default="retrieval",
+        help="Built-in scenario risk stage. Use 'none' for a clean trajectory.",
+    )
     parser.add_argument("--plan", help="Path to a JSON stage plan.")
     parser.add_argument("--write-plan", help="Write the built-in plan to JSON and exit.")
     parser.add_argument("--state-dir", default="outputs/harness_state")

@@ -24,6 +24,15 @@ deployment.
 - `experiments/ember_harness`: paper-ready EMBER-Harness tables, figures, and processed CSV results.
 - `docs`: architecture, experiment, and safety notes in Chinese and English.
 
+## Current Public Status
+
+This repository is a cleaned public reference release. The actively maintained
+entry point is `src/ember`; the earlier scripts under `code` are kept for
+traceability with the thesis experiments and should not be treated as the
+primary runtime. The included tests cover the rule-based provider,
+EMBER-Agent's check-rewrite loop, EMBER-Harness snapshots and audit logs, the
+built-in benchmark, and CLI smoke paths.
+
 ## Core Ideas
 
 1. **EMBER framework** evaluates bias dynamically instead of relying only on
@@ -44,7 +53,7 @@ pip install -e .[dev]
 ember-agent-demo --json
 ember-harness-run --strategy stage_gate --json
 ember-benchmark --output outputs/ember_benchmark.csv
-pytest
+python -m pytest -s
 ```
 
 The demos use deterministic rule-based evaluators so the repository can be
@@ -66,6 +75,9 @@ tested without private models or API credentials.
 - `per_call`: check every modeled LLM call and re-check repaired artifacts.
 - `stage_gate`: save each stage as a pending snapshot, run the gate, commit clean
   snapshots, and roll back to the latest committed snapshot when a stage fails.
+
+The built-in scenario option `--risk-stage` accepts any semantic stage in the
+default plan, or `none` for a clean trajectory with no injected risk.
 
 When `--state-dir` is set, stage-gate runs persist one JSON snapshot per check
 and an `audit.jsonl` decision log. `ember-benchmark` runs the built-in

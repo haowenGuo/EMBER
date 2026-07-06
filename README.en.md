@@ -28,6 +28,14 @@ EMBER/
 └── docs/en/                       # English docs
 ```
 
+## Current Public Release Status
+
+This repository is a cleaned public reference release. The actively maintained
+runtime is `src/ember`; scripts under `code` are retained for thesis
+traceability and are not the recommended entry point. The test suite covers
+the rule provider, the EMBER-Agent check-rewrite loop, EMBER-Harness snapshots
+and audit logs, the built-in benchmark, and CLI smoke paths.
+
 ## Main Components
 
 ### EMBER Evaluation Framework
@@ -74,7 +82,7 @@ pip install -e .[dev]
 ember-agent-demo --json
 ember-harness-run --strategy stage_gate --json
 ember-benchmark --output outputs/ember_benchmark.csv
-pytest
+python -m pytest -s
 ```
 
 The examples use deterministic rule-based evaluators, so they run without
@@ -109,6 +117,9 @@ private models or credentials.
 With `--state-dir`, stage-gate runs persist one snapshot JSON file per check and
 an `audit.jsonl` decision log. `ember-benchmark` exports expected token costs
 for the built-in controlled scenarios.
+
+The built-in Harness scenario option `--risk-stage` accepts any semantic stage
+in the default plan, or `none` for a clean trajectory with no injected risk.
 
 ## EMBER-Harness Results
 
