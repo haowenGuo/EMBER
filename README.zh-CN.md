@@ -5,6 +5,11 @@ Dialogues）是一套面向大语言模型动态安全评估的研究与工程�
 
 本仓库整理自论文与实验代码，目标是提供一个可公开、可复现、可继续扩展的 EMBER 项目版本。
 
+## 匿名评审入口
+
+- [EMBER 匿名仓库](https://anonymous.4open.science/r/EMBER-F43C)
+- [EMBER-Harness 在 AILIS AI 助手系统中的具体实现](https://anonymous.4open.science/r/AILIS-4ABB)
+
 ## 项目结构
 
 ```text

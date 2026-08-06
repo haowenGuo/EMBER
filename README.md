@@ -8,6 +8,11 @@ models. It combines multi-agent debate simulation, BiasExpert-style scoring,
 EMBER-Agent reflection-based mitigation, and EMBER-Harness stage-gated
 deployment.
 
+## Anonymous Review Links
+
+- [EMBER anonymous repository](https://anonymous.4open.science/r/EMBER-F43C)
+- [EMBER-Harness implementation in AILIS](https://anonymous.4open.science/r/AILIS-4ABB)
+
 ## Language / 语言
 
 - [中文说明](README.zh-CN.md)

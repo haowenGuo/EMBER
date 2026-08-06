@@ -7,6 +7,11 @@ EMBER models a full interaction trajectory: user input, adversarial pressure,
 target-model responses, evaluator scores, mitigation actions, and stage-level
 rollback.
 
+## Anonymous Review Links
+
+- [EMBER anonymous repository](https://anonymous.4open.science/r/EMBER-F43C)
+- [EMBER-Harness implementation in AILIS](https://anonymous.4open.science/r/AILIS-4ABB)
+
 ## Repository Layout
 
 ```text
