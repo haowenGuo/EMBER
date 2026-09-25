@@ -1,0 +1,26 @@
+[
+  {
+    "name": "ember-analysis-data.zip",
+    "size": 315321725,
+    "sha256": "0ea408578bf9800e8542e7876f2e054bb7dc9de4047a795a7d07beb44497f212",
+    "files": 160
+  },
+  {
+    "name": "ember-formal-trajectories.zip",
+    "size": 554664227,
+    "sha256": "74293388078de487fa83b64b5882e6e86830a8135b184ef133613f444384a0cf",
+    "files": 7843
+  },
+  {
+    "name": "ember-legacy-data.zip",
+    "size": 493365112,
+    "sha256": "af6af9c7ee50c79e0cc282b4c862ba6a521f7fee294453beb5df086434065505",
+    "files": 79
+  },
+  {
+    "name": "ember-training-data.zip",
+    "size": 555427057,
+    "sha256": "0662d6f1f868e16656deb31bba05105b4e7ef6788439b601948d732d5f94f9ff",
+    "files": 91
+  }
+]

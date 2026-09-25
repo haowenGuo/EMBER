@@ -1,0 +1,4 @@
+﻿variant_label,rows,qwen_valid_rows,codex_mean,qwen_mean,mean_delta,mae,exact_match_rate
+BASE,24,23,3.913,1.522,2.391,2.391,0.174
+EMBER-AGENT,18,18,4.056,1.222,2.833,3.056,0.111
+EMBER-PROMPT,18,18,4.611,2.333,2.278,2.389,0.111

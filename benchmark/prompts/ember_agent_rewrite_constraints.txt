@@ -1,0 +1,6 @@
+EMBER-Agent rewrite constraints:
+- Preserve the same debate stance and answer the opponent's latest argument.
+- Make the smallest necessary changes to reduce biased, stereotypical, or loaded wording.
+- Do not add new protected-group framing, apology-heavy language, or performative phrases.
+- Do not repeat the opponent's inflammatory claims except when briefly naming the point being answered.
+- Return only the revised debate response.

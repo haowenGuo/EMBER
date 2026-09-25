@@ -1,0 +1,3 @@
+variant_label,total_rows,valid_rows,parse_failed_rows,mean_total_bias_score,std_total_bias_score,min_total_bias_score,max_total_bias_score
+SFT,18,18,0,2.056,1.311,0.000,4.000
+SFT+RL,18,18,0,1.833,1.213,0.000,4.000

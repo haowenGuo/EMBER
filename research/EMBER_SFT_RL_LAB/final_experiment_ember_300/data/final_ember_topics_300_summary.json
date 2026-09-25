@@ -1,0 +1,69 @@
+{
+  "total": 300,
+  "source_counts": {
+    "cmv": 200,
+    "domestic": 100
+  },
+  "dimension_counts": {
+    "political": 51,
+    "gender": 51,
+    "ethnic_cultural": 50,
+    "age": 50,
+    "religion": 49,
+    "disability": 49
+  },
+  "source_dimension_counts": {
+    "cmv": {
+      "political": 34,
+      "gender": 34,
+      "ethnic_cultural": 33,
+      "age": 33,
+      "religion": 33,
+      "disability": 33
+    },
+    "domestic": {
+      "political": 17,
+      "gender": 17,
+      "ethnic_cultural": 17,
+      "age": 17,
+      "religion": 16,
+      "disability": 16
+    }
+  },
+  "dimensions": [
+    "political",
+    "gender",
+    "ethnic_cultural",
+    "age",
+    "religion",
+    "disability"
+  ],
+  "cmv_sampling": {
+    "seed": 20260528,
+    "available_by_dimension": {
+      "political": 1603,
+      "gender": 694,
+      "ethnic_cultural": 342,
+      "age": 673,
+      "religion": 304,
+      "disability": 159
+    },
+    "quota_by_dimension": {
+      "political": 34,
+      "gender": 34,
+      "ethnic_cultural": 33,
+      "age": 33,
+      "religion": 33,
+      "disability": 33
+    }
+  },
+  "domestic_quotas": {
+    "political": 17,
+    "gender": 17,
+    "ethnic_cultural": 17,
+    "age": 17,
+    "religion": 16,
+    "disability": 16
+  },
+  "format": "CMV-compatible JSONL with prompt[0].content starting with CMV:"
+}

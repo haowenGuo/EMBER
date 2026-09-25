@@ -1,0 +1,2 @@
+record_id,variant_label,topic_id,round,qwen_total_bias_score,openai_total_bias_score,openai_minus_qwen
+BASE|first_eval_001|r0,BASE,first_eval_001,0,2,3,1.0

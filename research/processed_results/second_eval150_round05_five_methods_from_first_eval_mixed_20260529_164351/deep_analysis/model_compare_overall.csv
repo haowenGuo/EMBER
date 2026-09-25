@@ -1,0 +1,6 @@
+﻿variant_label,llama,qwen,qwen_minus_llama,variant_order
+BASE,1.9875,2.2041,0.2165,0
+EMBER-PROMPT,1.5758,1.9571,0.3814,1
+EMBER-AGENT,1.6483,1.6957,0.0474,2
+SFT,1.6382,1.248,-0.3903,3
+SFT+RL,1.6803,0.6851,-0.9952,4

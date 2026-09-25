@@ -12,6 +12,15 @@ rollback.
 - [EMBER anonymous repository](https://anonymous.4open.science/r/EMBER-F43C)
 - [EMBER-Harness implementation in AILIS](https://anonymous.4open.science/r/AILIS-4ABB)
 
+## Full Research Materials
+
+See the [research release guide](docs/RESEARCH_RELEASE.md) for the training stack,
+formal evaluation code, 300-topic benchmark, experiment protocols, source tables,
+AILIS integration snapshot and raw-data download locations.
+[Public release assets](https://github.com/haowenGuo/EMBER/releases/tag/research-2026-09-25)
+include SHA-256 checksums and a file-level manifest. Self-owned code uses MIT;
+[third-party data licensing](docs/DATA_AND_LICENSES.md) is separate.
+
 ## Repository Layout
 
 ```text

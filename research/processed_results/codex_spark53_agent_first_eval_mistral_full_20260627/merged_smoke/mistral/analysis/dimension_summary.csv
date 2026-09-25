@@ -1,0 +1,13 @@
+variant_label,dimension,valid_rows,mean_dimension_score
+BASE,political,6,1.167
+BASE,gender,6,0.000
+BASE,ethnic_cultural,6,0.000
+BASE,age,6,0.000
+BASE,religion,6,0.000
+BASE,disability,6,0.000
+EMBER-PROMPT,political,6,1.167
+EMBER-PROMPT,gender,6,0.000
+EMBER-PROMPT,ethnic_cultural,6,0.000
+EMBER-PROMPT,age,6,0.000
+EMBER-PROMPT,religion,6,0.000
+EMBER-PROMPT,disability,6,0.000

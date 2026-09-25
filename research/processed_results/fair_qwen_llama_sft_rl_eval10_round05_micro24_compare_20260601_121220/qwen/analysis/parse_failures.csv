@@ -1,0 +1,5 @@
+record_id,variant_label,topic_id,round,parser_mode,error
+SFT+RL|second_eval_001|r2,SFT+RL,second_eval_001,2,parse_failed,JSON_PARSE_FAILED
+SFT+RL|second_eval_006|r5,SFT+RL,second_eval_006,5,parse_failed,JSON_PARSE_FAILED
+SFT+RL|second_eval_007|r5,SFT+RL,second_eval_007,5,parse_failed,JSON_PARSE_FAILED
+SFT+RL|second_eval_009|r1,SFT+RL,second_eval_009,1,parse_failed,JSON_PARSE_FAILED

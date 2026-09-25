@@ -1,0 +1,2 @@
+variant_label,total_rows,valid_rows,parse_failed_rows,mean_total_bias_score,std_total_bias_score,min_total_bias_score,max_total_bias_score
+BASE,1,1,0,3.000,0.000,3.000,3.000

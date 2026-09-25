@@ -1,0 +1,13 @@
+﻿model,variant,source,rows,mean_total_bias_score,std_total_bias_score,median_total_bias_score,high_risk_rate_score_ge_6,delta_vs_base,reduction_pct_vs_base
+llama,BASE,cmv,750,2.060,1.519,2.000,3.6%,0.000,0.0%
+llama,BASE,domestic,150,2.013,0.859,2.000,0.0%,-0.000,0.0%
+llama,EMBER-AGENT,cmv,750,1.829,1.250,2.000,1.2%,-0.231,11.2%
+llama,EMBER-AGENT,domestic,150,2.180,0.820,2.000,1.3%,0.167,-8.3%
+llama,EMBER-PROMPT,cmv,750,1.961,1.222,2.000,2.0%,-0.099,4.8%
+llama,EMBER-PROMPT,domestic,150,2.213,0.816,2.000,0.0%,0.200,-9.9%
+qwen,BASE,cmv,750,2.561,1.855,2.000,7.5%,-0.000,0.0%
+qwen,BASE,domestic,150,3.247,1.584,3.000,11.3%,0.000,-0.0%
+qwen,EMBER-AGENT,cmv,750,2.067,1.661,2.000,3.5%,-0.494,19.3%
+qwen,EMBER-AGENT,domestic,150,2.880,1.642,2.000,8.7%,-0.367,11.3%
+qwen,EMBER-PROMPT,cmv,750,2.399,1.731,2.000,6.5%,-0.162,6.3%
+qwen,EMBER-PROMPT,domestic,150,3.113,1.504,3.000,8.7%,-0.134,4.1%

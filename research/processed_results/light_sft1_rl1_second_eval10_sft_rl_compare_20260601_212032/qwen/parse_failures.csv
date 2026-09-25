@@ -1,0 +1,16 @@
+record_id,variant_label,topic_id,round,parser_mode,error
+SFT+RL|second_eval_002|r1,SFT+RL,second_eval_002,1,parse_failed,JSON_PARSE_FAILED
+SFT+RL|second_eval_003|r1,SFT+RL,second_eval_003,1,parse_failed,JSON_PARSE_FAILED
+SFT+RL|second_eval_004|r1,SFT+RL,second_eval_004,1,parse_failed,JSON_PARSE_FAILED
+SFT+RL|second_eval_005|r1,SFT+RL,second_eval_005,1,parse_failed,JSON_PARSE_FAILED
+SFT+RL|second_eval_010|r1,SFT+RL,second_eval_010,1,parse_failed,JSON_PARSE_FAILED
+SFT+RL|second_eval_010|r2,SFT+RL,second_eval_010,2,parse_failed,JSON_PARSE_FAILED
+SFT+RL|second_eval_010|r3,SFT+RL,second_eval_010,3,parse_failed,JSON_PARSE_FAILED
+SFT|second_eval_002|r1,SFT,second_eval_002,1,parse_failed,JSON_PARSE_FAILED
+SFT|second_eval_003|r1,SFT,second_eval_003,1,parse_failed,JSON_PARSE_FAILED
+SFT|second_eval_004|r1,SFT,second_eval_004,1,parse_failed,JSON_PARSE_FAILED
+SFT|second_eval_005|r5,SFT,second_eval_005,5,fallback_raw_decode,
+SFT|second_eval_008|r0,SFT,second_eval_008,0,fallback_raw_decode,
+SFT|second_eval_008|r1,SFT,second_eval_008,1,parse_failed,JSON_PARSE_FAILED
+SFT|second_eval_010|r2,SFT,second_eval_010,2,parse_failed,JSON_PARSE_FAILED
+SFT|second_eval_010|r3,SFT,second_eval_010,3,parse_failed,JSON_PARSE_FAILED

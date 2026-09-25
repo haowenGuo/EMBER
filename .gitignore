@@ -29,3 +29,7 @@ checkpoints/
 ~$*
 .DS_Store
 Thumbs.db
+
+# Locally downloaded public release archives and verification caches
+release-downloads/
+pytest-cache-files-*/

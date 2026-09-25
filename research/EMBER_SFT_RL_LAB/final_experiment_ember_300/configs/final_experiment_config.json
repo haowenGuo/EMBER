@@ -1,0 +1,93 @@
+{
+  "experiment_name": "final_ember_300",
+  "local_root": "F:/lab/LLM_Eval/EMBER_SFT_RL_LAB/final_experiment_ember_300",
+  "remote_root": "/home/haowen/Lab/EMBER_SFT_RL_LAB/final_experiment_ember_300",
+  "dataset": {
+    "local_path": "F:/lab/LLM_Eval/EMBER_SFT_RL_LAB/final_experiment_ember_300/data/final_ember_topics_300.jsonl",
+    "remote_path": "/home/haowen/Lab/EMBER_SFT_RL_LAB/final_experiment_ember_300/data/final_ember_topics_300.jsonl",
+    "total": 300,
+    "source_counts": {
+      "cmv": 200,
+      "domestic": 100
+    },
+    "dimensions": [
+      "political",
+      "gender",
+      "ethnic_cultural",
+      "age",
+      "religion",
+      "disability"
+    ]
+  },
+  "models": {
+    "qwen_target": "/data2/guohaowen_data/huggingface_cache/hub/models--Qwen--Qwen3-4B-Instruct-2507/snapshots/cdbee75f17c01a7cc42f958dc650907174af0554",
+    "llama_target": "/data2/guohaowen_data/.cache/huggingface/hub/models--unsloth--Meta-Llama-3.1-8B-Instruct/snapshots/a2856192dd7c25b842431f39c179a6c2c2f627d1",
+    "local_attacker": "/data2/guohaowen_data/huggingface_cache/hub/modelscope/Qwen/Qwen3.5-9B",
+    "bias_expert": "EmergentMethods/Qwen3-4B-BiasExpert"
+  },
+  "variants": [
+    "BASE",
+    "EMBER-PROMPT",
+    "EMBER-AGENT",
+    "SFT",
+    "SFT+RL"
+  ],
+  "current_run_profile": {
+    "name": "final150_round05_three_methods",
+    "topic_start": 1,
+    "topic_end": 150,
+    "max_debate_round": 5,
+    "rounds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "variants": [
+      "BASE",
+      "EMBER-PROMPT",
+      "EMBER-AGENT"
+    ],
+    "attacker": "Qwen3.5-9B local ModelScope",
+    "target_models": [
+      "Qwen3-4B-Instruct",
+      "Llama-3.1-8B-Instruct"
+    ],
+    "rationale": "Stop at round 5 to reduce long-context confounding after observing reliability degradation beyond round 5."
+  },
+  "agent": {
+    "bias_threshold": 2,
+    "max_refinement_rounds": 2,
+    "min_response_chars": 80
+  },
+  "evaluation": {
+    "topic_start": 1,
+    "topic_end": 300,
+    "rounds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "local_provocateur_max_new_tokens": 1024,
+    "local_provocateur_device": "cuda:1",
+    "disable_attacker_thinking": true,
+    "legacy_attacker_speaker_name": "doubao"
+  },
+  "canonical_scripts": {
+    "qwen_eval": "/home/haowen/Lab/EMBER_SFT_RL_LAB/formal_eval_cmv101_200_fiveway_exact_fullcontext_qwen_from_qwen/run_fiveway_exact_biasexpert_eval.py",
+    "llama_eval": "/home/haowen/Lab/EMBER_SFT_RL_LAB/formal_eval_cmv101_200_fiveway_exact_fullcontext_llama_from_qwen/run_fiveway_exact_biasexpert_eval.py",
+    "dataset_builder": "F:/lab/LLM_Eval/EMBER_SFT_RL_LAB/final_experiment_ember_300/scripts/build_final_ember_topic_dataset.py",
+    "qwen_final150_round05": "/home/haowen/Lab/EMBER_SFT_RL_LAB/final_experiment_ember_300/scripts/run_qwen_final150_round05_three_methods_local_attacker.sh",
+    "llama_final150_round05": "/home/haowen/Lab/EMBER_SFT_RL_LAB/final_experiment_ember_300/scripts/run_llama_final150_round05_three_methods_local_attacker.sh"
+  }
+}

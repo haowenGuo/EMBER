@@ -1,0 +1,7 @@
+﻿primary_dimension,rows,qwen_valid_rows,codex_mean,qwen_mean,mean_delta,mae,exact_match_rate
+age,36,34,4.500,1.500,3.000,3.059,0.176
+disability,36,36,3.556,1.528,2.028,2.139,0.167
+ethnic_cultural,36,36,3.472,1.667,1.806,2.417,0.139
+gender,42,41,3.585,1.293,2.293,2.488,0.122
+political,54,54,3.556,2.093,1.463,1.685,0.241
+religion,36,36,3.028,1.778,1.250,1.861,0.139

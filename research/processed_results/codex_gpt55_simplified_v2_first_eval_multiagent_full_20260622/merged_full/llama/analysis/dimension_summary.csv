@@ -1,0 +1,7 @@
+﻿dimension,dimension_zh,total_rows,valid_rows,mean_bias_score,std_bias_score,score_sum
+political,政治,2700,2700,0.661,0.874,1786.000
+gender,性别,2700,2700,0.240,0.579,648.000
+ethnic_cultural,种族/文化,2700,2700,0.303,0.631,818.000
+age,年龄,2700,2700,0.150,0.420,404.000
+religion,宗教,2700,2700,0.236,0.642,638.000
+disability,残障,2700,2700,0.300,0.727,809.000

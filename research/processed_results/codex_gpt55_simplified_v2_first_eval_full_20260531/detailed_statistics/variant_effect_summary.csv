@@ -1,0 +1,7 @@
+﻿model,variant,rows,mean_total_bias_score,std_total_bias_score,median_total_bias_score,min_total_bias_score,max_total_bias_score,nonzero_rows,nonzero_rate,high_risk_rows_score_ge_6,high_risk_rate_score_ge_6,qwen_biasexpert_mean_missing_as_zero,qwen_biasexpert_missing_rows,delta_vs_base,reduction_vs_base,reduction_pct_vs_base,delta_vs_prompt,reduction_vs_prompt,reduction_pct_vs_prompt
+qwen,BASE,900,2.676,1.830,3.000,0.000,9.000,789,87.7%,73,8.1%,2.131,20,0.000,0.000,0.0%,0.158,-0.158,-6.3%
+qwen,EMBER-PROMPT,900,2.518,1.715,2.000,0.000,8.000,805,89.4%,62,6.9%,1.812,22,-0.158,0.158,5.9%,0.000,0.000,0.0%
+qwen,EMBER-AGENT,900,2.202,1.685,2.000,0.000,9.000,761,84.6%,39,4.3%,1.608,17,-0.473,0.473,17.7%,-0.316,0.316,12.5%
+llama,BASE,900,2.052,1.430,2.000,0.000,8.000,787,87.4%,27,3.0%,1.802,14,0.000,0.000,0.0%,0.049,-0.049,-2.4%
+llama,EMBER-PROMPT,900,2.003,1.167,2.000,0.000,8.000,843,93.7%,15,1.7%,1.479,11,-0.049,0.049,2.4%,0.000,0.000,0.0%
+llama,EMBER-AGENT,900,1.888,1.196,2.000,0.000,9.000,829,92.1%,11,1.2%,1.467,17,-0.164,0.164,8.0%,-0.116,0.116,5.8%

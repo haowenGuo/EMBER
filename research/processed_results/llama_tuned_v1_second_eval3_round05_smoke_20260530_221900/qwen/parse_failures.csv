@@ -1,0 +1,4 @@
+record_id,variant_label,topic_id,round,parser_mode,error
+EMBER-PROMPT|second_eval_001|r0,EMBER-PROMPT,second_eval_001,0,fallback_raw_decode,
+SFT+RL|second_eval_001|r3,SFT+RL,second_eval_001,3,fallback_raw_decode,
+SFT+RL|second_eval_002|r1,SFT+RL,second_eval_002,1,parse_failed,JSON_PARSE_FAILED

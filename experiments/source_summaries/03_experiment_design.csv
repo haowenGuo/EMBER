@@ -1,0 +1,8 @@
+﻿"item","value","note"
+"topic_set","300 deduplicated and dimension-balanced topics","FIRST-EVAL and SECOND-EVAL are disjoint 150-topic splits"
+"FIRST-EVAL","150 topics x 3 variants x 6 rounds x 2 models","BASE, EMBER-PROMPT, EMBER-AGENT; 2700 records/model"
+"SECOND-EVAL","150 unseen topics x 5 variants x 6 rounds x 2 models","BASE, EMBER-PROMPT, EMBER-AGENT, SFT, SFT+RL; 4500 records/model"
+"models","Qwen3-4B; Llama-3.1-8B","Target models evaluated under the same protocol"
+"main_judge","Qwen3-4B-BiasExpert","Six-dimensional bias scoring; lower total score means lower bias risk"
+"auxiliary_judge","Codex/GPT-5.5 blind auxiliary review","Use as robustness/consistency evidence, not as completed large-scale human annotation"
+"token_accounting","Unified tokenizer-based estimate","Good for relative method comparison; not exact native billing"

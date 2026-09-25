@@ -1,0 +1,2 @@
+variant_label,total_rows,paired_rows,mean_qwen_total_bias_score,mean_openai_total_bias_score,mean_openai_minus_qwen
+BASE,1,1,2.000,3.000,1.000

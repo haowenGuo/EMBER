@@ -18,6 +18,19 @@ deployment.
 - [中文说明](README.zh-CN.md)
 - [English README](README.en.md)
 
+## Complete research materials
+
+The [research release guide](docs/RESEARCH_RELEASE.md) links the training and
+formal-evaluation code, 300-topic benchmark, prompts, processed results, AILIS
+integration snapshot, and public raw-data archives. See the
+[research-2026-09-25 release](https://github.com/haowenGuo/EMBER/releases/tag/research-2026-09-25)
+for full historical trajectory and training-data ZIPs with SHA-256 checksums.
+
+Self-owned code is **MIT licensed**. Third-party datasets and model weights are
+not relicensed; see [data provenance and licensing](docs/DATA_AND_LICENSES.md).
+The small `src/ember` demo and the actual research code under `research/` have
+different purposes; demo scores are not the thesis's experimental results.
+
 ## What Is In This Repository?
 
 - `src/ember`: the main runnable implementation.

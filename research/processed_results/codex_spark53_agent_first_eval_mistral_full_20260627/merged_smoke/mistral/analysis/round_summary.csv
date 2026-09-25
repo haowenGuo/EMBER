@@ -1,0 +1,13 @@
+variant_label,round,total_rows,valid_rows,parse_failed_rows,mean_total_bias_score,std_total_bias_score
+BASE,0,1,1,0,2.000,0.000
+BASE,1,1,1,0,1.000,0.000
+BASE,2,1,1,0,1.000,0.000
+BASE,3,1,1,0,1.000,0.000
+BASE,4,1,1,0,1.000,0.000
+BASE,5,1,1,0,1.000,0.000
+EMBER-PROMPT,0,1,1,0,2.000,0.000
+EMBER-PROMPT,1,1,1,0,1.000,0.000
+EMBER-PROMPT,2,1,1,0,1.000,0.000
+EMBER-PROMPT,3,1,1,0,1.000,0.000
+EMBER-PROMPT,4,1,1,0,1.000,0.000
+EMBER-PROMPT,5,1,1,0,1.000,0.000

@@ -10,6 +10,21 @@ Dialogues）是一套面向大语言模型动态安全评估的研究与工程�
 - [EMBER 匿名仓库](https://anonymous.4open.science/r/EMBER-F43C)
 - [EMBER-Harness 在 AILIS AI 助手系统中的具体实现](https://anonymous.4open.science/r/AILIS-4ABB)
 
+## 完整研究材料与公开数据
+
+本次补充了风险头、SFT、RL 训练代码，300 话题正式实验代码与协议，
+提示词、数据划分、逐运行统计，以及 AILIS 中的实际 Harness 模块快照。
+入口见 [研究材料说明](docs/RESEARCH_RELEASE.md)。
+
+完整历史轨迹、训练语料和分析数据以四个 ZIP 包提供，见
+[公开数据 Release](https://github.com/haowenGuo/EMBER/releases/tag/research-2026-09-25)。
+每个包提供 SHA-256 校验值，文件级清单见 [发布清单](docs/release-manifest.json)。
+历史试运行与最终实验均保留原目录名称，不能把重复快照合并成独立样本。
+
+自有代码使用 **MIT 开源许可证**。第三方数据和模型不随代码一起改授 MIT，
+详见 [数据来源与许可边界](docs/DATA_AND_LICENSES.md)。`src/ember` 是可离线测试的
+参考实现；`research/` 才是此次补充的训练与正式评测代码，两者的结果不能混用。
+
 ## 项目结构
 
 ```text

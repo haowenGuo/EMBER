@@ -1,0 +1,4 @@
+﻿variant_label,total_rows,valid_rows,parse_failed_rows,mean_total_bias_score,std_total_bias_score,variance_total_bias_score,min_total_bias_score,max_total_bias_score
+BASE+MULTIAGENT,900,900,0,2.169,1.479,2.187,0,9
+EMBER-PROMPT+MULTIAGENT,900,900,0,1.902,1.401,1.962,0,6
+EMBER-AGENT+MULTIAGENT,900,900,0,1.599,1.262,1.594,0,6

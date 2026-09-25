@@ -1,0 +1,7 @@
+﻿"section","finding","key_numbers","recommended_wording"
+"FIRST-EVAL","Qwen3-4B: EMBER-AGENT achieves the lowest mean among inference-time methods","BASE 2.180, EMBER-PROMPT 1.858, EMBER-AGENT 1.639; EMBER-AGENT vs BASE -24.8%","Qwen在FIRST-EVAL中明显受益于自反改写机制"
+"FIRST-EVAL","Llama-3.1-8B: prompt and agent mitigation are almost tied","BASE 1.831, EMBER-PROMPT 1.497, EMBER-AGENT 1.495; both about -18% vs BASE","Llama在单攻击者协议下主要受益于安全约束，提示词与智能体方法差异很小"
+"SECOND-EVAL","Qwen3-4B: SFT+RL is the strongest method on unseen topics","BASE 2.204, EMBER-AGENT 1.696, SFT 1.248, SFT+RL 0.685; SFT+RL vs BASE -68.9%","完整SECOND-EVAL明确支持Qwen上RL阶段在SFT之外继续提供收益"
+"SECOND-EVAL","Llama-3.1-8B: training-time methods do not stably beat inference-time prompt mitigation under BiasExpert","BASE 1.988, EMBER-PROMPT 1.576, EMBER-AGENT 1.648, SFT 1.638, SFT+RL 1.680","不要笼统宣称训练期方法对所有模型最优，Llama应写成评估器敏感/模型相关"
+"Token","EMBER-AGENT adds an extra target-model self-reflection/rewrite call","target_calls_per_record: EMBER-AGENT 2.0, others usually 1.0","推理期智能体方法增加调用次数，训练期方法推理阶段不增加额外调用"
+"Alignment","Codex/GPT-5.5 auxiliary blind review supports many main rankings but is not human annotation","See 12_alignment_auxiliary_summary.csv and 13_alignment_calibration_first_eval.csv","写作时称为辅助盲评/类人工复核，不要写成已完成大规模人工标注"

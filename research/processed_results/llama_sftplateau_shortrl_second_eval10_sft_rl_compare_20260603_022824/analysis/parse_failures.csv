@@ -1,0 +1,4 @@
+record_id,variant_label,topic_id,round,parser_mode,error
+EMBER-PROMPT|second_eval_001|r0,EMBER-PROMPT,second_eval_001,0,fallback_raw_decode,
+SFT+RL|second_eval_010|r2,SFT+RL,second_eval_010,2,fallback_raw_decode,
+SFT|second_eval_001|r0,SFT,second_eval_001,0,fallback_raw_decode,

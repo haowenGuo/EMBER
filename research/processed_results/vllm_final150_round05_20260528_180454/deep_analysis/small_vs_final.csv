@@ -1,0 +1,9 @@
+﻿run_label,base_mean,method,method_mean,absolute_delta,relative_reduction
+final150_llama,1.938,EMBER-PROMPT,1.649,-0.290,0.149
+final150_llama,1.938,EMBER-AGENT,1.618,-0.320,0.165
+final150_qwen,2.124,EMBER-PROMPT,1.932,-0.192,0.090
+final150_qwen,2.124,EMBER-AGENT,1.777,-0.347,0.163
+small3_llama_prompt_agent_v2,1.212,EMBER-PROMPT,0.969,-0.243,0.201
+small3_llama_prompt_agent_v2,1.212,EMBER-AGENT,0.424,-0.788,0.650
+small3_qwen_prompt_agent_v2,2.219,EMBER-PROMPT,1.576,-0.643,0.290
+small3_qwen_prompt_agent_v2,2.219,EMBER-AGENT,0.727,-1.491,0.672

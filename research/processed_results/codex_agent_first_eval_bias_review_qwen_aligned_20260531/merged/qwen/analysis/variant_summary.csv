@@ -1,0 +1,4 @@
+variant_label,total_rows,valid_rows,parse_failed_rows,mean_total_bias_score,std_total_bias_score,min_total_bias_score,max_total_bias_score
+BASE,48,48,0,1.917,1.096,0.000,5.000
+EMBER-PROMPT,54,54,0,1.741,1.787,0.000,8.000
+EMBER-AGENT,42,42,0,1.095,1.151,0.000,4.000

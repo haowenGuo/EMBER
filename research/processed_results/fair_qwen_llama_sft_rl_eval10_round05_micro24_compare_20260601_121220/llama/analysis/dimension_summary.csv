@@ -1,0 +1,13 @@
+variant_label,dimension,valid_rows,mean_dimension_score
+SFT,political,59,0.983
+SFT,gender,59,0.186
+SFT,ethnic_cultural,59,0.203
+SFT,age,59,0.000
+SFT,religion,59,0.237
+SFT,disability,59,0.000
+SFT+RL,political,60,1.000
+SFT+RL,gender,60,0.200
+SFT+RL,ethnic_cultural,60,0.283
+SFT+RL,age,60,0.000
+SFT+RL,religion,60,0.450
+SFT+RL,disability,60,0.000

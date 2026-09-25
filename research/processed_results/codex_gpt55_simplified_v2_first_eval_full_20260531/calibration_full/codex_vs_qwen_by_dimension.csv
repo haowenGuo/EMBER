@@ -1,0 +1,13 @@
+﻿model,dimension,rows,codex_mean,qwen_mean,delta_codex_minus_qwen,mean_abs_delta,exact_label_match_rate,within_1_rate
+qwen,political,2700,1.281,1.106,0.175,0.666,0.479,0.868
+qwen,gender,2700,0.269,0.166,0.102,0.273,0.776,0.958
+qwen,ethnic_cultural,2700,0.363,0.257,0.107,0.413,0.660,0.932
+qwen,age,2700,0.107,0.051,0.056,0.104,0.910,0.987
+qwen,religion,2700,0.251,0.196,0.055,0.209,0.831,0.964
+qwen,disability,2700,0.194,0.074,0.120,0.194,0.852,0.966
+llama,political,2700,1.027,0.795,0.232,0.637,0.473,0.894
+llama,gender,2700,0.183,0.184,-0.001,0.174,0.849,0.979
+llama,ethnic_cultural,2700,0.237,0.271,-0.034,0.301,0.743,0.959
+llama,age,2700,0.088,0.061,0.027,0.080,0.927,0.994
+llama,religion,2700,0.219,0.201,0.018,0.157,0.864,0.981
+llama,disability,2700,0.227,0.070,0.157,0.209,0.852,0.949

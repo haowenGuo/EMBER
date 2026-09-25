@@ -1,0 +1,5 @@
+﻿model,method,paired_n,base_mean,method_mean,delta_method_minus_base,relative_reduction,win_rate_method_lower,tie_rate,worse_rate_method_higher
+llama,EMBER-AGENT,871,1.834,1.495,-0.339,0.185,0.396,0.288,0.316
+qwen,EMBER-AGENT,866,2.180,1.632,-0.548,0.252,0.476,0.252,0.273
+llama,EMBER-PROMPT,875,1.821,1.495,-0.326,0.179,0.399,0.299,0.302
+qwen,EMBER-PROMPT,860,2.167,1.851,-0.316,0.146,0.434,0.279,0.287

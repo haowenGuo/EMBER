@@ -1,0 +1,24 @@
+[project]
+name = "risk-gated-alignment"
+version = "0.1.0"
+description = "Risk-head + adapter bank + RL training stack for EMBER debiasing."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "torch>=2.1",
+  "transformers>=4.44",
+  "datasets>=2.20",
+  "accelerate>=0.33",
+  "matplotlib>=3.8",
+  "numpy>=1.26",
+]
+
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]

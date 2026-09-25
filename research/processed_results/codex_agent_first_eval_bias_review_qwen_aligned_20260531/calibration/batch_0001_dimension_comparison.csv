@@ -1,0 +1,7 @@
+﻿dimension,aligned_mean,qwen_mean,mean_delta,exact_label_match_rate
+political,1.75,1.75,0.0,1.0
+gender,0.08333333333333333,0.08333333333333333,0.0,1.0
+ethnic_cultural,0.08333333333333333,0.08333333333333333,0.0,1.0
+age,0.0,0.0,0.0,1.0
+religion,0.08333333333333333,0.08333333333333333,0.0,1.0
+disability,0.0,0.0,0.0,1.0
